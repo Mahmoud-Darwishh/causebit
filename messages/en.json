@@ -91,7 +91,7 @@
     "title": "Proven delivery metrics",
     "subtitle": "We ship fast with quality and reliability.",
     "items": [
-      {"value": 3000000, "suffix": "+", "label": "Lines of code delivered"},
+      {"value": 3000, "suffix": "K+", "label": "Lines of code delivered"},
       {"value": 94, "suffix": "+", "label": "Performance score"},
       {"value": 99.8, "suffix": "%", "label": "Uptime guarantee"},
       {"value": 5, "suffix": "+", "label": "Team experts"}
