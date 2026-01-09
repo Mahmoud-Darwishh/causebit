@@ -343,8 +343,10 @@
   }
 
   @media (max-width: 576px) {
-    height: 360px;
-    padding: 8px;
+    height: 460px;
+    padding: 4px;
+    margin-bottom: 10px;
+    margin-top: 35px;
   }
 }
 
@@ -539,6 +541,11 @@
     width: 90px;
     height: 90px;
   }
+
+  @media (max-width: 576px) {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .coreSymbol {
@@ -553,6 +560,10 @@
 
   @media (max-width: 768px) {
     font-size: 32px;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 40px;
   }
 }
 
@@ -585,17 +596,19 @@
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
   }
 
-  @media (max-width: 576px) {
-    width: 88px;
-    min-height: 76px;
-    font-size: 1rem;
-    padding: 10px;
-  }
-
   @media (max-width: 768px) {
     width: 68px;
     min-height: 60px;
     font-size: 1rem;
+  }
+
+  @media (max-width: 576px) {
+    width: 76px;
+    min-height: 68px;
+    font-size: 0.95rem;
+    padding: 9px 11px;
+    gap: 7px;
+    border-radius: 12px;
   }
 }
 
@@ -724,6 +737,15 @@
     font-size: 0.7rem;
     padding: 6px 12px;
   }
+
+  @media (max-width: 576px) {
+    bottom: 8px;
+    right: 8px;
+    font-size: 0.65rem;
+    padding: 5px 10px;
+    gap: 8px;
+    background: rgba(26, 34, 56, 0.95);
+  }
 }
 
 .streakBadge {
@@ -735,6 +757,11 @@
   background: rgba(t.$color-accent, 0.25);
   color: #222;
   border: 1px solid rgba(t.$color-accent, 0.55);
+
+  @media (max-width: 576px) {
+    padding: 4px 8px;
+    gap: 4px;
+  }
 }
 
 .gameHud {
@@ -749,11 +776,11 @@
   pointer-events: none;
 
   @media (max-width: 576px) {
-    top: 10px;
-    right: 10px;
-    left: 10px;
-    grid-template-columns: 1fr;
-    gap: 8px;
+    top: 2px;
+    right: 4px;
+    left: 4px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
   }
 }
 
@@ -765,6 +792,12 @@
   backdrop-filter: blur(8px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
   pointer-events: auto;
+
+  @media (max-width: 576px) {
+    padding: 5px 8px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .objectiveCard {
@@ -795,6 +828,11 @@
   color: rgba(255, 255, 255, 0.94);
   margin-bottom: 6px;
   letter-spacing: 0.3px;
+
+  @media (max-width: 576px) {
+    font-size: 0.55rem;
+    margin-bottom: 2px;
+  }
 }
 
 .hudValue {
@@ -802,6 +840,10 @@
   font-weight: 800;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 576px) {
+    font-size: 0.75rem;
+  }
 }
 
 .progressTrack {
@@ -813,6 +855,11 @@
   border: 1px solid rgba(255, 255, 255, 0.16);
   overflow: hidden;
   margin-top: 6px;
+
+  @media (max-width: 576px) {
+    height: 4px;
+    margin-top: 2px;
+  }
 }
 
 .progressFill {
