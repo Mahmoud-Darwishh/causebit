@@ -1,0 +1,111 @@
+@use 'sass:color';
+@use '../../styles/tokens' as t;
+
+.section {
+  padding: 64px 0;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(0, 0, 0, 0.02) 100%);
+
+  @media (max-width: 768px) {
+    padding: 48px 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 32px 0;
+  }
+}
+
+.header {
+  max-width: 900px;
+  margin: 0 auto 28px auto;
+  text-align: center;
+}
+
+.kicker {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: t.$color-cyan-deep;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: t.$color-primary;
+  margin: 8px 0 8px 0;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  color: t.$color-text-muted;
+  margin: 0;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid t.$color-border;
+  border-radius: 14px;
+  padding: 18px 18px 16px 18px;
+  height: 100%;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(6px);
+  transition: transform 300ms ease, box-shadow 300ms ease, opacity 600ms ease, transform 600ms ease;
+
+  @media (max-width: 576px) {
+    padding: 14px 14px 12px 14px;
+    border-radius: 10px;
+  }
+}
+
+.value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: t.$color-primary;
+  line-height: 1.1;
+}
+
+.unit {
+  font-size: 1rem;
+  font-weight: 700;
+  color: t.$color-cyan-deep;
+}
+
+.label {
+  margin-top: 6px;
+  color: t.$color-text-muted;
+  font-weight: 600;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
+  .reveal { opacity: 1; transform: none; }
+}

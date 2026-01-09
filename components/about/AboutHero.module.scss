@@ -1,0 +1,104 @@
+@use '../../styles/tokens' as t;
+
+.hero {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(t.$color-bg, 0.4) 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(t.$color-cyan, 0.1), transparent);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    left: -5%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(t.$color-primary, 0.1), transparent);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    padding: 60px 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 40px 0;
+  }
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: t.$color-primary;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+
+  @media (max-width: 768px) {
+    font-size: 2.8rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 2.2rem;
+  }
+}
+
+.tagline {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: t.$color-cyan;
+  margin-bottom: 24px;
+
+  @media (max-width: 576px) {
+    font-size: 1.2rem;
+  }
+}
+
+.description {
+  font-size: 1.15rem;
+  color: t.$color-text-muted;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+  }
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.rtl {
+  direction: rtl;
+}

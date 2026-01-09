@@ -1,0 +1,153 @@
+@use '../../styles/tokens' as t;
+
+.info {
+  padding: 80px 0;
+  background: linear-gradient(180deg, rgba(t.$color-bg, 0.4) 0%, #ffffff 100%);
+
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 40px 0;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: t.$color-primary;
+  margin-bottom: 12px;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: t.$color-text-muted;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.contactCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 24px;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(t.$color-bg, 0.5) 100%);
+  border: 2px solid rgba(t.$color-cyan, 0.15);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(t.$color-cyan, 0.1), rgba(t.$color-primary, 0.05));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  &.cardVisible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s);
+  }
+
+  &:hover {
+    border-color: rgba(t.$color-cyan, 0.3);
+    box-shadow: 0 12px 32px rgba(t.$color-cyan, 0.12);
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(t.$color-bg, 0.8) 100%);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .icon {
+      transform: scale(1.15);
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 24px 20px;
+  }
+}
+
+.icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  transition: transform 0.3s ease;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: t.$color-primary;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+
+  @media (max-width: 576px) {
+    font-size: 0.85rem;
+  }
+}
+
+.value {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: t.$color-text;
+  margin: 0;
+  line-height: 1.4;
+
+  @media (max-width: 576px) {
+    font-size: 1.05rem;
+  }
+}
+
+.visible {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

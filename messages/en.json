@@ -1,0 +1,638 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "toggle": "Toggle navigation"
+  },
+  "hero": {
+    "title": "Code with Cause",
+    "subtitle": "Working with you, not just for you",
+    "description": "Global Standards. Local Heart. We are a creative team of developers, designers, and strategists building digital solutions that drive real impact.",
+    "cta": "View Our Projects",
+    "secondary": "Get in Touch",
+    "game": {
+      "score": "Score",
+      "hits": "Interactions",
+      "streak": "Streak",
+      "objective": "Objective",
+      "collect": "Collect {item}",
+      "winTitle": "You hit the target!",
+      "winSubtitle": "Winner — Build the next release with Causebit",
+      "winCta": "Talk to Causebit",
+      "playAgain": "Play again",
+      "items": {
+        "strategy": "Strategy",
+        "design": "Design",
+        "development": "Development",
+        "boost": "Boost",
+        "core": "Core"
+      }
+    },
+    "cards": {
+      "portfolio": {"title": "Portfolio", "desc": "Showcase your best work"},
+      "projects": {"title": "Projects", "desc": "View all our work"}
+    },
+    "badge": "Software House · Global Standards",
+    "highlights": ["Enterprise-grade delivery", "Bilingual Arabic/English", "Secure & observable"],
+    "stats": {
+      "projects": {"label": "Projects shipped", "value": "12+"},
+      "satisfaction": {"label": "Client satisfaction", "value": "98%"},
+      "speed": {"label": "Average launch", "value": "6 weeks"}
+    }
+  },
+  "footer": {
+    "tagline": "Code with Cause",
+    "description": "Building digital solutions with purpose.",
+    "links": {
+      "label": "Navigation",
+      "projects": "Projects",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "resources": {
+      "label": "Resources",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "docs": "Documentation"
+    },
+    "contact": {
+      "label": "Get In Touch",
+      "email": "Email",
+      "location": "Location",
+      "address": "Cairo, Egypt"
+    },
+    "legal": {
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "twitter": "Twitter"
+    },
+    "rights": "All rights reserved."
+  },
+  "portfolio": {
+    "kicker": "Portfolio",
+    "title": "Showcase your best work",
+    "subtitle": "Selected projects that demonstrate quality, speed, and impact.",
+    "cta": "View all our work",
+    "viewProject": "View project",
+    "cards": [
+      {"title": "E‑commerce Platform", "desc": "Headless storefront with blazing performance and robust checkout."},
+      {"title": "SaaS Dashboard", "desc": "Real-time analytics with crisp UX and scalable APIs."},
+      {"title": "Mobile Banking", "desc": "Secure onboarding and payments with elegant interfaces."}
+    ]
+  },
+  "stats": {
+    "kicker": "Results",
+    "title": "Proven delivery metrics",
+    "subtitle": "We ship fast with quality and reliability.",
+    "items": [
+      {"value": 3000000, "suffix": "+", "label": "Lines of code delivered"},
+      {"value": 94, "suffix": "+", "label": "Performance score"},
+      {"value": 99.8, "suffix": "%", "label": "Uptime guarantee"},
+      {"value": 5, "suffix": "+", "label": "Team experts"}
+    ]
+  },
+  "whatsapp": {
+    "label": "Chat on WhatsApp",
+    "tooltip": "Message us on WhatsApp",
+    "message": "Hello Causebit team! I am visiting your website and would like to discuss one of my projects with you. Looking forward to exploring how we can work together."
+  },
+  "services": {
+    "kicker": "What We Do",
+    "title": "Our Services",
+    "subtitle": "Comprehensive digital solutions tailored to your needs.",
+    "items": [
+      {
+        "icon": "🌐",
+        "title": "Web Development",
+        "description": "Enterprise-grade web applications built with modern technologies. Fast, scalable, and optimized for performance."
+      },
+      {
+        "icon": "📱",
+        "title": "Mobile App Development",
+        "description": "Native and cross-platform mobile apps delivering seamless user experiences on iOS and Android."
+      },
+      {
+        "icon": "🎨",
+        "title": "UI/UX Design",
+        "description": "Thoughtful interface design and user experience strategy that balances beauty with functionality."
+      },
+      {
+        "icon": "🔍",
+        "title": "SEO & AI Search Optimization",
+        "description": "We enhance your visibility on search engines and AI-powered searches like ChatGPT to reach your audience wherever they search."
+      }
+    ]
+  },
+  "homeFaq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to common questions about working with Causebit",
+    "items": [
+      {
+        "question": "What technologies do you use?",
+        "answer": "We specialize in modern tech stacks: React, Next.js, TypeScript, Node.js, and more. We choose technologies based on your project needs to ensure scalability, performance, and maintainability."
+      },
+      {
+        "question": "How much does a project cost?",
+        "answer": "Costs vary based on scope and complexity. Small projects range from $600-$2,000, while larger projects start at $2000+. We provide transparent estimates after understanding your requirements."
+      },
+      {
+        "question": "What's your project timeline?",
+        "answer": "Most web projects take 6-12 weeks from discovery to launch. Mobile apps typically take 12-20 weeks. We provide a detailed timeline during the discovery phase based on your scope."
+      },
+      {
+        "question": "Do you offer ongoing support?",
+        "answer": "Yes! We provide post-launch support including bug fixes, updates, security patches, and feature enhancements. Many clients choose our retainer model for continuous development."
+      },
+      {
+        "question": "Can you work with existing code?",
+        "answer": "Absolutely. We audit, refactor, and improve existing projects. This avoids costly rewrites and preserves your existing investments while adding new capabilities."
+      },
+      {
+        "question": "How do you ensure quality?",
+        "answer": "Quality is built into our process: code reviews, automated testing, security audits, and performance optimization. Every project launches with 99.8%+ uptime guarantees."
+      }
+    ]
+  },
+  "projects": {
+    "kicker": "Portfolio",
+    "title": "Our Work",
+    "subtitle": "A curated selection of projects showcasing innovation, quality, and measurable impact.",
+    "cta": "View all projects",
+    "viewProject": "View Project",
+    "categories": {
+      "all": "All Projects",
+      "web": "Web",
+      "mobile": "Mobile",
+      "uiux": "UI/UX",
+      "ecommerce": "E-commerce",
+      "saas": "SaaS",
+      "dashboard": "Dashboard"
+    },
+    "items": {
+      "iccy": {
+        "title": "ICANCOACHYOU (ICCY) – AI-powered coaching SaaS",
+        "description": "Bilingual coaching platform with AI-assisted programs, session scheduling, and personalized insights.",
+        "testimonial": "Causebit delivered a resilient, multilingual platform with seamless AI integrations and a polished coach/client experience."
+      },
+      "anees": {
+        "title": "Anees Health – Telemedicine & Home Care Platform",
+        "description": "Comprehensive healthcare platform connecting patients with doctors through video consultations and managing home care services. Features real-time communication, secure health records, and intuitive dashboards.",
+        "testimonial": "Causebit built a robust, compliant telemedicine solution that transformed how we deliver healthcare services to our patients."
+      },
+      "aneesMobileUi": {
+        "title": "Anees Health – Mobile App UI/UX (First Draft)",
+        "description": "Early UI/UX draft for the Anees mobile app focusing on onboarding and core patient/provider flows. Visual exploration and layout decisions captured in a single screen."
+      },
+      "roadmentors": {
+        "title": "Road Mentors – EdTech Platform for Data & AI Courses",
+        "description": "Comprehensive learning platform offering offline tech courses in Data Science and AI. Features course management, student dashboards, progress tracking, and integrated payment systems for in-person training programs.",
+        "testimonial": "Causebit created a powerful platform that streamlined our course delivery and enhanced the learning experience for our students in Data and AI."
+      },
+      "elmawkaa": {
+        "title": "ElMawkaa – Construction Materials E-commerce Platform",
+        "description": "Modern e-commerce platform for construction materials with streamlined ordering, real-time inventory management, and seamless checkout. Built to handle large catalogs and high-volume orders for contractors and builders.",
+        "testimonial": "Causebit delivered a robust e-commerce solution that transformed our ordering process and significantly improved customer satisfaction."
+      },
+      "sparx": {
+        "title": "Sparx Media – International Marketing Agency",
+        "description": "A simple, clean website with a catchy look for a global marketing agency — fast to browse, clear services, and strong visual appeal.",
+        "testimonial": "Causebit delivered a modern website that looks sharp and loads fast — perfect for our international audience."
+      },
+      "mobileleaders": {
+        "title": "Mobile Leaders – Mobile Store Website",
+        "description": "Simple and clean mobile store website. Customers can browse phones and accessories, add items to cart, and make purchases easily.",
+        "testimonial": "Causebit built a clean and easy-to-use store that makes it simple for customers to shop for mobile devices."
+      },
+      "furnitureui": {
+        "title": "Furniture E‑commerce – UI/UX (CO Design)",
+        "description": "Clean furniture store UI with a modern catalog, product details, and simple checkout — designed for clarity and a premium feel."
+      },
+      "travelui": {
+        "title": "Travel Agency – UI/UX (Tgaroub)",
+        "description": "Modern travel agency website design with inspiring destinations, smooth booking flow, and visual storytelling."
+      },
+      "motoractor": {
+        "title": "Motor Actor – UI/UX",
+        "description": "Clean automotive UI design showcasing vehicles with bold visuals, modern layouts, and engaging user experience."
+      },
+      "ecommerce": {
+        "title": "E-commerce Platform",
+        "description": "Headless storefront with blazing performance, secure checkout, and real-time inventory management.",
+        "testimonial": "Causebit delivered a scalable solution that doubled our conversion rate."
+      },
+      "saas": {
+        "title": "SaaS Analytics Dashboard",
+        "description": "Real-time analytics platform with crisp UX, interactive charts, and scalable APIs."
+      },
+      "banking": {
+        "title": "Mobile Banking App",
+        "description": "Secure onboarding, seamless transactions, and elegant interfaces for modern banking."
+      },
+      "designsystem": {
+        "title": "Design System & Component Library",
+        "description": "Comprehensive UI kit with tokens, patterns, and reusable components."
+      },
+      "logistics": {
+        "title": "Logistics Management Platform",
+        "description": "Real-time tracking, route optimization, and fleet management dashboard."
+      },
+      "healthcare": {
+        "title": "Healthcare & Telemedicine App",
+        "description": "Appointment booking, medical records, and video consultations in one platform."
+      }
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Causebit",
+      "subtitle": "Code with Cause",
+      "description": "We are a full-service software house specializing in building digital solutions that drive real impact. Global standards, local heart—working with you, not just for you."
+    },
+    "story": {
+      "kicker": "Our Journey",
+      "title": "Built on Purpose",
+      "subtitle": "From Egypt to the World",
+      "content": "Causebit was founded on a simple belief: technology should solve real problems. Starting in Egypt, we've grown into a team of passionate developers, designers, and strategists working across the MENA region and beyond. Every project we take on is an opportunity to deliver excellence and create lasting value for our partners.",
+      "highlights": [
+        "Enterprise-grade quality from day one",
+        "Bilingual expertise in Arabic & English",
+        "Track record of 50+ successful projects",
+        "Partnerships across startup to enterprise scale"
+      ]
+    },
+    "values": {
+      "kicker": "Our Values",
+      "title": "What Guides Us",
+      "items": [
+        {
+          "icon": "⚡",
+          "title": "Excellence",
+          "description": "We don't cut corners. Every line of code, every design decision, every interaction reflects our commitment to quality."
+        },
+        {
+          "icon": "🤝",
+          "title": "Partnership",
+          "description": "We work with you, not just for you. Your success is our success, and we're invested in your long-term growth."
+        },
+        {
+          "icon": "🌍",
+          "title": "Global Perspective",
+          "description": "We bring international best practices while respecting local markets, cultures, and languages."
+        },
+        {
+          "icon": "🚀",
+          "title": "Innovation",
+          "description": "We stay ahead of the curve, embracing modern technologies and methodologies to deliver cutting-edge solutions."
+        }
+      ]
+    },
+    "team": {
+      "kicker": "Our Team",
+      "title": "The Experts Behind It",
+      "subtitle": "A diverse, talented group of developers, designers, and strategists committed to your success.",
+      "stats": [
+        {
+          "number": "5+",
+          "label": "Senior Team Members"
+        },
+        {
+          "number": "50+",
+          "label": "Projects Delivered"
+        },
+        {
+          "number": "3M+",
+          "label": "Lines of Code"
+        },
+        {
+          "number": "99.8%",
+          "label": "Uptime Guarantee"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Build Something Great?",
+      "subtitle": "Let's talk about your project and how we can help bring your vision to life.",
+      "button": "Get in Touch"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Get in Touch",
+      "subtitle": "Let's Build Something Together",
+      "description": "Have a project in mind? We'd love to hear about it. Reach out and let's start a conversation."
+    },
+    "form": {
+      "title": "Send us a Message",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "What's your project about?",
+      "message": "Message",
+      "messagePlaceholder": "Tell us more about your project and what you're looking to achieve...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Something went wrong. Please try again.",
+      "required": "This field is required"
+    },
+    "info": {
+      "title": "Other Ways to Reach Us",
+      "subtitle": "We're here to help and answer any question you might have.",
+      "email": {
+        "label": "Email",
+        "value": "hello@causebit.com"
+      },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "value": "Chat with us"
+      },
+      "location": {
+        "label": "Location",
+        "value": "Cairo, Egypt & Global"
+      },
+      "hours": {
+        "label": "Response Time",
+        "value": "Usually within 24 hours"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": [
+        {
+          "question": "What's your typical project timeline?",
+          "answer": "Most web projects take 6-12 weeks from discovery to launch, depending on scope and complexity. We'll provide a detailed timeline during our initial consultation."
+        },
+        {
+          "question": "Do you offer ongoing support?",
+          "answer": "Yes! We provide maintenance, support, and scaling services for all our projects. We're your long-term partner, not just a vendor."
+        },
+        {
+          "question": "What's your process?",
+          "answer": "We follow a collaborative approach: Discovery → Strategy → Design → Development → Testing → Launch → Support. Your input is valued at every stage."
+        },
+        {
+          "question": "Do you work with startups?",
+          "answer": "Absolutely. We love working with startups and scale-ups. We understand the unique challenges and can tailor solutions to your budget and timeline."
+        },
+        {
+          "question": "Are you bilingual?",
+          "answer": "Yes, we specialize in bilingual (Arabic/English) digital solutions. We understand both markets and can build for regional and global audiences."
+        },
+        {
+          "question": "How do we get started?",
+          "answer": "Simply fill out the form, send us a message, or reach out via WhatsApp. We'll schedule a free consultation to understand your needs."
+        }
+      ]
+    }
+  },
+  "privacy": {
+    "hero": {
+      "title": "Privacy Policy",
+      "subtitle": "Your privacy matters to us",
+      "description": "Learn how Causebit collects, uses, and protects your data. We're committed to transparency and compliance with international standards."
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "content": "At Causebit, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services. Please read this policy carefully to understand our practices regarding your personal data."
+      },
+      {
+        "id": "information-collection",
+        "title": "Information We Collect",
+        "subsections": [
+          {
+            "title": "Information You Provide",
+            "content": "When you contact us through our website, fill out a form, or request our services, you may provide us with personal information including your name, email address, phone number, company name, and project details."
+          },
+          {
+            "title": "Automatically Collected Information",
+            "content": "When you visit our website, we automatically collect certain information about your device and browsing activities, including IP address, browser type, pages visited, time spent on pages, and referral sources. We use cookies and similar tracking technologies to enhance your experience and understand site usage."
+          },
+          {
+            "title": "Third-Party Information",
+            "content": "We may receive information about you from third parties such as analytics providers, marketing partners, and publicly available sources."
+          }
+        ]
+      },
+      {
+        "id": "information-use",
+        "title": "How We Use Your Information",
+        "content": "We use the information we collect for the following purposes:",
+        "list": [
+          "To communicate with you about your project or inquiry",
+          "To provide, maintain, and improve our services",
+          "To process transactions and send related information",
+          "To send marketing communications (with your consent)",
+          "To analyze website usage and improve user experience",
+          "To comply with legal obligations",
+          "To detect and prevent fraudulent or illegal activities"
+        ]
+      },
+      {
+        "id": "information-sharing",
+        "title": "Information Sharing",
+        "content": "We do not sell, trade, or share your personal information with third parties without your explicit consent, except in the following circumstances:",
+        "list": [
+          "Service providers who assist us in operating our website and conducting business",
+          "Legal requirements and law enforcement when required by law",
+          "Business transfers in case of merger, acquisition, or sale of assets",
+          "Your explicit consent for specific purposes"
+        ]
+      },
+      {
+        "id": "data-security",
+        "title": "Data Security",
+        "content": "We implement comprehensive security measures to protect your personal data from unauthorized access, alteration, disclosure, or destruction. These measures include encryption, secure servers, and restricted access protocols. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security."
+      },
+      {
+        "id": "cookies",
+        "title": "Cookies & Tracking Technologies",
+        "content": "Our website uses cookies and similar tracking technologies to enhance your browsing experience, remember your preferences, and analyze site traffic. You can control cookie settings through your browser preferences. Disabling cookies may affect some website functionality."
+      },
+      {
+        "id": "your-rights",
+        "title": "Your Rights",
+        "content": "Depending on your location, you may have the following rights regarding your personal data:",
+        "list": [
+          "Access: Request a copy of the personal data we hold about you",
+          "Correction: Request correction of inaccurate or incomplete data",
+          "Deletion: Request deletion of your personal data (subject to legal obligations)",
+          "Portability: Request transfer of your data to another service provider",
+          "Opt-out: Unsubscribe from marketing communications at any time",
+          "Objection: Object to certain processing activities"
+        ]
+      },
+      {
+        "id": "retention",
+        "title": "Data Retention",
+        "content": "We retain personal data only as long as necessary to fulfill the purposes for which it was collected or as required by law. You can request deletion of your data at any time, subject to legal retention requirements."
+      },
+      {
+        "id": "third-party-links",
+        "title": "Third-Party Links",
+        "content": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of external sites. We encourage you to review the privacy policies of any website before providing personal information."
+      },
+      {
+        "id": "children-privacy",
+        "title": "Children's Privacy",
+        "content": "Our services are not directed to children under the age of 13. We do not knowingly collect personal information from children. If we become aware that a child has provided us with personal information, we will take steps to delete such data and terminate the child's account."
+      },
+      {
+        "id": "international-data",
+        "title": "International Data Transfers",
+        "content": "Your data may be transferred to, stored in, and processed in countries other than your country of residence. By using our services, you consent to the transfer of your information to countries outside your country of residence, which may have different data protection rules. We implement appropriate safeguards for international transfers."
+      },
+      {
+        "id": "policy-updates",
+        "title": "Changes to This Policy",
+        "content": "We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of material changes by posting the updated policy on our website and updating the 'Last Updated' date. Your continued use of our services after changes constitutes your acceptance of the updated policy."
+      },
+      {
+        "id": "contact-us",
+        "title": "Contact Us",
+        "content": "If you have questions about this Privacy Policy, wish to exercise your rights, or have privacy concerns, please contact us at:",
+        "contactInfo": {
+          "email": "privacy@causebit.com",
+          "address": "Cairo, Egypt"
+        }
+      }
+    ]
+  },
+  "terms": {
+    "hero": {
+      "title": "Terms of Service",
+      "subtitle": "Our commitment to fair and transparent partnership",
+      "description": "These terms govern your use of Causebit's website and services. Please read them carefully to understand your rights and responsibilities."
+    },
+    "sections": [
+      {
+        "id": "introduction",
+        "title": "1. Introduction",
+        "content": "Welcome to Causebit. These Terms of Service (\"Terms\") constitute a legally binding agreement between you and Causebit (\"we\", \"us\", \"our\", or \"Company\"). By accessing and using our website, services, and products, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use our services."
+      },
+      {
+        "id": "services",
+        "title": "2. Our Services",
+        "content": "Causebit provides software development, web development, mobile application development, UI/UX design, and related digital services. The scope of each service is defined in individual project agreements, statements of work, or proposals. Any service-specific terms in these documents supersede general terms herein."
+      },
+      {
+        "id": "user-responsibilities",
+        "title": "3. User Responsibilities & Code of Conduct",
+        "content": "You agree to:",
+        "list": [
+          "Use our services only for lawful purposes and in compliance with applicable laws",
+          "Not engage in harassment, discrimination, or abusive behavior",
+          "Not attempt to gain unauthorized access to our systems",
+          "Not reverse engineer, decompile, or tamper with our code or services",
+          "Not share your login credentials or allow unauthorized access",
+          "Provide accurate and truthful information in all communications",
+          "Respect intellectual property rights of third parties"
+        ]
+      },
+      {
+        "id": "intellectual-property",
+        "title": "4. Intellectual Property Rights",
+        "subsections": [
+          {
+            "title": "Our IP",
+            "content": "All content, code, designs, and materials created by Causebit prior to or independent of your project remain our property. This includes tools, methodologies, templates, and frameworks we develop."
+          },
+          {
+            "title": "Client IP",
+            "content": "Upon full payment for a project, you own all original work products created specifically for your project, including custom code and designs. However, you grant us the right to use anonymized project examples for portfolio and case studies."
+          },
+          {
+            "title": "Third-Party IP",
+            "content": "You are responsible for obtaining necessary licenses for any third-party content you provide. You warrant that your materials do not infringe on any third-party rights."
+          }
+        ]
+      },
+      {
+        "id": "payment-terms",
+        "title": "5. Payment Terms",
+        "content": "Payment terms are specified in project agreements or invoices. We accept various payment methods as outlined in your contract. Late payments may incur interest charges. Work may be paused if payment is significantly overdue."
+      },
+      {
+        "id": "confidentiality",
+        "title": "6. Confidentiality",
+        "content": "Both parties agree to maintain the confidentiality of proprietary information shared during the engagement. This includes project details, pricing, technical specifications, and business strategies. Confidentiality obligations survive termination of our relationship for a period of two years, except where disclosure is required by law."
+      },
+      {
+        "id": "limitation-liability",
+        "title": "7. Limitation of Liability",
+        "content": "To the maximum extent permitted by law, Causebit shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data loss, or business interruption, even if advised of the possibility of such damages. Our total liability is limited to the amount you paid for the service that caused the claim."
+      },
+      {
+        "id": "warranty-disclaimer",
+        "title": "8. Warranty Disclaimer",
+        "content": "Our services are provided \"as is\" without warranties of any kind. We do not warrant that our services will be error-free, uninterrupted, or secure. We disclaim all implied warranties, including merchantability, fitness for a particular purpose, and non-infringement."
+      },
+      {
+        "id": "indemnification",
+        "title": "9. Indemnification",
+        "content": "You agree to indemnify, defend, and hold harmless Causebit from any claims, damages, or costs arising from your breach of these Terms, your violation of applicable laws, or your misuse of our services. This includes attorney's fees and court costs."
+      },
+      {
+        "id": "termination",
+        "title": "10. Termination",
+        "content": "Either party may terminate services with written notice if the other party materially breaches these Terms and fails to cure within 30 days. Causebit may terminate services immediately if you engage in illegal activity or abuse our platform. Upon termination, you remain responsible for all fees incurred and all payment obligations."
+      },
+      {
+        "id": "modifications",
+        "title": "11. Modifications to Terms",
+        "content": "We reserve the right to modify these Terms at any time. Material changes will be communicated via email or posted on our website. Your continued use of our services after changes constitutes acceptance of the modified Terms."
+      },
+      {
+        "id": "dispute-resolution",
+        "title": "12. Dispute Resolution",
+        "subsections": [
+          {
+            "title": "Informal Resolution",
+            "content": "In case of disputes, we encourage good-faith negotiation. Contact us to discuss the issue before pursuing formal legal action."
+          },
+          {
+            "title": "Arbitration",
+            "content": "Any dispute arising from these Terms shall be resolved through binding arbitration in accordance with applicable laws, rather than court litigation. Each party bears its own arbitration costs unless otherwise provided by law."
+          },
+          {
+            "title": "Governing Law",
+            "content": "These Terms are governed by and construed in accordance with the laws of Egypt, without regard to conflict of law principles."
+          }
+        ]
+      },
+      {
+        "id": "limitation-actions",
+        "title": "13. Limitation Period for Legal Actions",
+        "content": "You agree that any claim against Causebit must be brought within one year of the date the claim arose. Claims brought after this period are barred."
+      },
+      {
+        "id": "entire-agreement",
+        "title": "14. Entire Agreement",
+        "content": "These Terms, together with any project agreements, statements of work, and privacy policies, constitute the entire agreement between you and Causebit regarding our services. Any prior agreements, understandings, or negotiations are superseded."
+      },
+      {
+        "id": "severability",
+        "title": "15. Severability",
+        "content": "If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions shall continue in full effect. The invalid provision shall be modified to the minimum extent necessary to make it valid."
+      },
+      {
+        "id": "contact",
+        "title": "16. Contact Us",
+        "content": "For questions about these Terms of Service, please contact us at:",
+        "contactInfo": {
+          "email": "legal@causebit.com",
+          "address": "Cairo, Egypt"
+        }
+      }
+    ]
+  }
+}

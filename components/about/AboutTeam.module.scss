@@ -1,0 +1,152 @@
+@use '../../styles/tokens' as t;
+
+.team {
+  padding: 100px 0;
+  background: #ffffff;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 50px 0;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.kicker {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(t.$color-primary, 0.08);
+  color: t.$color-primary;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+  border: 1px solid rgba(t.$color-primary, 0.12);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: t.$color-primary;
+  margin: 16px 0 12px;
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.8rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: t.$color-text-muted;
+  line-height: 1.6;
+  margin: 0;
+
+  @media (max-width: 576px) {
+    font-size: 1rem;
+  }
+}
+
+.statCol {
+  perspective: 1000px;
+
+  @media (max-width: 992px) {
+    margin-bottom: 12px;
+  }
+}
+
+.statCard {
+  padding: 40px 24px;
+  background: linear-gradient(135deg, rgba(t.$color-cyan, 0.05) 0%, rgba(t.$color-primary, 0.04) 100%);
+  border: 2px solid rgba(t.$color-cyan, 0.2);
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(t.$color-cyan, 0.1), rgba(t.$color-accent, 0.06));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  &.cardVisible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s);
+  }
+
+  &:hover {
+    border-color: rgba(t.$color-cyan, 0.4);
+    box-shadow: 0 12px 40px rgba(t.$color-cyan, 0.15);
+    transform: translateY(-8px);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 32px 20px;
+  }
+}
+
+.statNumber {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, t.$color-primary, t.$color-cyan);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+
+  @media (max-width: 576px) {
+    font-size: 2.8rem;
+  }
+}
+
+.statLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: t.$color-text-muted;
+  margin: 0;
+  letter-spacing: 0.3px;
+
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

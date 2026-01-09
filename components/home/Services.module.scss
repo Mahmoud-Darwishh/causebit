@@ -1,0 +1,293 @@
+@use 'sass:color';
+@use '../../styles/tokens' as t;
+
+.services {
+  padding: 100px 0;
+  background: linear-gradient(135deg, t.$color-primary 0%, color.adjust(t.$color-primary, $lightness: -8%) 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(t.$color-cyan, 0.12), transparent);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    left: -5%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(t.$color-accent, 0.08), transparent);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media (max-width: 576px) {
+    padding: 50px 0;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 70px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(t.$color-cyan, 0.15);
+  color: t.$color-cyan;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+  border: 1px solid rgba(t.$color-cyan, 0.3);
+  margin-bottom: 16px;
+  box-shadow: 0 8px 24px rgba(t.$color-cyan, 0.2);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  animation: slideInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 16px 0 12px;
+  opacity: 0;
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+  letter-spacing: -0.5px;
+
+  @media (max-width: 992px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.8rem;
+  }
+
+  @media (max-width: 380px) {
+    font-size: 1.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 12px 0 0;
+  line-height: 1.6;
+  opacity: 0;
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+
+  @media (max-width: 576px) {
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 380px) {
+    font-size: 0.9rem;
+  }
+}
+
+.serviceCol {
+  perspective: 1000px;
+
+  @media (max-width: 992px) {
+    margin-bottom: 12px;
+  }
+}
+
+.serviceCard {
+  padding: 36px 28px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(t.$color-cyan, 0.06) 100%);
+  border: 1px solid rgba(t.$color-cyan, 0.25);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 0 24px rgba(t.$color-cyan, 0.1);
+  backdrop-filter: blur(12px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(t.$color-cyan, 0.15), rgba(t.$color-accent, 0.08));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(t.$color-cyan, 0.4), transparent);
+    opacity: 0.6;
+  }
+
+  &.cardVisible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s);
+  }
+
+  &:hover {
+    border-color: rgba(t.$color-cyan, 0.4);
+    box-shadow: 0 20px 48px rgba(t.$color-cyan, 0.25), inset 0 0 32px rgba(t.$color-cyan, 0.12);
+    transform: translateY(-12px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(t.$color-cyan, 0.1) 100%);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .iconBox {
+      transform: scale(1.15) translateY(-6px);
+      box-shadow: 0 12px 32px rgba(t.$color-cyan, 0.4);
+    }
+
+    .icon {
+      animation: bounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  }
+
+  @media (max-width: 576px) {
+    padding: 28px 22px;
+  }
+}
+
+.iconBox {
+  width: 70px;
+  height: 70px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(t.$color-cyan, 0.2), rgba(t.$color-accent, 0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(t.$color-cyan, 0.3);
+  position: relative;
+  box-shadow: 0 8px 16px rgba(t.$color-cyan, 0.15), inset 0 0 12px rgba(t.$color-cyan, 0.1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1), transparent);
+    opacity: 0.8;
+  }
+}
+
+.icon {
+  font-size: 32px;
+  display: block;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.serviceTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 12px 0 10px;
+  line-height: 1.4;
+
+  @media (max-width: 576px) {
+    font-size: 1.15rem;
+  }
+}
+
+.serviceDesc {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin: 0;
+  flex-grow: 1;
+  letter-spacing: 0.3px;
+
+  @media (max-width: 576px) {
+    font-size: 0.9rem;
+  }
+}
+
+.visible {
+  .kicker {
+    animation-delay: 0s;
+  }
+
+  .title {
+    animation-delay: 0.1s;
+  }
+
+  .subtitle {
+    animation-delay: 0.2s;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+

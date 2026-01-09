@@ -1,0 +1,126 @@
+@use 'sass:color';
+@use '../../styles/tokens' as t;
+
+.section {
+  padding: 80px 0;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+.header {
+  max-width: 920px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+.kicker {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: t.$color-cyan-deep;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: t.$color-primary;
+  margin: 8px 0 12px 0;
+}
+
+.subtitle {
+  color: t.$color-text-muted;
+  margin-bottom: 0;
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: t.$color-cyan-deep;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    color: t.$cyan-700;
+    transform: translateY(-2px);
+  }
+}
+
+.grid {
+  margin-top: 10px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid t.$color-border;
+  border-radius: 14px;
+  padding: 24px;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+  }
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #111;
+  background: linear-gradient(135deg, t.$color-accent 0%, color.adjust(t.$color-accent, $lightness: -8%) 100%);
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 14px 0 8px 0;
+  color: t.$color-primary;
+}
+
+.cardText {
+  color: t.$color-text-muted;
+  margin: 0 0 10px 0;
+}
+
+.cardLink {
+  color: t.$color-cyan-deep;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+
+  &:hover { color: t.$cyan-700; }
+}
+
+/* Reveal animations (IntersectionObserver toggles .isVisible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  will-change: opacity, transform;
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card { transition: none; }
+}

@@ -1,0 +1,19 @@
+@use 'sass:color';
+
+// Semantic design tokens
+$color-primary: #1A2238; // Deep Space Blue
+$color-cyan: #00acc3; // Electric Cyan (light)
+$color-cyan-deep: #03616d; // Cyan-Deep (for light backgrounds)
+$color-accent: #F0C808; // Soft Amber
+$color-bg: #F4F4F4; // Egyptian Sand
+$color-text: #222222; // Charcoal
+$color-text-muted: #666666;
+$color-border: #e0e0e0;
+
+// Expose tokens (Sass variables are global within files that @use this module)
+
+// Helper shades
+$primary-600: color.adjust($color-primary, $lightness: -5%);
+$primary-700: color.adjust($color-primary, $lightness: -10%);
+$cyan-600: color.adjust($color-cyan-deep, $lightness: -5%);
+$cyan-700: color.adjust($color-cyan-deep, $lightness: -10%);
