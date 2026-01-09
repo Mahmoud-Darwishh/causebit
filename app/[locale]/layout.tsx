@@ -7,6 +7,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import LocaleHtml from '@/components/shared/LocaleHtml';
 import WhatsAppButton from '@/components/shared/WhatsAppButton';
+import PageTransition from '@/components/shared/PageTransition';
+import BackToTop from '@/components/shared/BackToTop';
+import { ToastProvider } from '@/components/shared/ToastProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@/styles/globals.scss';
 
@@ -62,13 +65,18 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
 
   return (
     <NextIntlClientProvider messages={messages}>
-      <LocaleHtml />
-      <div dir={locale === 'ar' ? 'rtl' : 'ltr'} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Header />
-        <main style={{ flex: 1, width: '100%' }}>{children}</main>
-        <Footer />
-        <WhatsAppButton />
-      </div>
+      <ToastProvider>
+        <LocaleHtml />
+        <div dir={locale === 'ar' ? 'rtl' : 'ltr'} style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Header />
+          <main style={{ flex: 1, width: '100%' }}>
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+          <WhatsAppButton />
+          <BackToTop />
+        </div>
+      </ToastProvider>
     </NextIntlClientProvider>
   );
 }

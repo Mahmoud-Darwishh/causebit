@@ -89,6 +89,17 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 32px;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+
+  &.fadeOut {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  &.fadeIn {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -106,13 +117,23 @@
   transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
   opacity: 0;
   transform: translateY(30px);
-  animation: cardFadeIn 600ms ease-out calc(var(--card-index) * 80ms) forwards;
+  animation: cardFadeIn 600ms cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--card-index) * 100ms) forwards;
 
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 24px 48px rgba(t.$color-cyan, 0.12),
                 0 12px 24px rgba(0, 0, 0, 0.08);
     border-color: rgba(t.$color-cyan, 0.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+    transform: translateY(0);
+
+    &:hover {
+      transform: translateY(0);
+    }
   }
 }
 

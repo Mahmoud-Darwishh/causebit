@@ -1,4 +1,10 @@
 {
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact"
+  },
   "nav": {
     "home": "Home",
     "projects": "Projects",
@@ -340,6 +346,7 @@
       "submit": "Send Message",
       "sending": "Sending...",
       "success": "Message sent successfully! We'll get back to you soon.",
+      "successMessage": "Thank you! Your message has been sent. We'll get back to you soon.",
       "error": "Something went wrong. Please try again.",
       "required": "This field is required"
     },

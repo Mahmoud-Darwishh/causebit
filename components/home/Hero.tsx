@@ -42,6 +42,7 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
+  const [parallaxOffset, setParallaxOffset] = useState(0);
   const [starPositions, setStarPositions] = useState<Array<{ left: number; top: number; delay: number }> | null>(null);
   const [shouldRenderGame, setShouldRenderGame] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
@@ -81,10 +82,20 @@ export default function Hero() {
       observer.observe(heroRef.current);
     }
 
+    // Parallax scroll effect
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const parallax = scrolled * 0.5;
+      setParallaxOffset(parallax);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
     return () => {
       if (heroRef.current) {
         observer.unobserve(heroRef.current);
       }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -378,7 +389,10 @@ export default function Hero() {
           </div>
 
           <div className={`col-lg-6 order-lg-2 order-2 ${styles.visual}`}>
-            <div className={styles.visualContent}>
+            <div 
+              className={styles.visualContent}
+              style={{ transform: `translateY(${parallaxOffset}px)` }}
+            >
               {shouldRenderGame ? (
                 <div className={`${styles.gameCanvas} ${isVisible ? styles.active : ''}`} ref={gameCanvasRef}>
                   <div className={styles.starfield}>

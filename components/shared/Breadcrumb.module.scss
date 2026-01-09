@@ -1,0 +1,108 @@
+@use '../../styles/tokens' as t;
+
+.breadcrumb {
+  padding: 16px 0;
+  margin-bottom: 20px;
+  animation: breadcrumbFadeIn 500ms ease-out;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: t.$color-text-muted;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 200ms ease;
+  font-weight: 500;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 200ms ease;
+  }
+
+  &:hover {
+    color: t.$color-cyan-deep;
+    background: rgba(t.$color-cyan, 0.08);
+    
+    svg {
+      transform: translateY(-1px);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid t.$color-cyan;
+    outline-offset: 2px;
+  }
+}
+
+.homeLabel {
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+.separator {
+  color: rgba(t.$color-text-muted, 0.4);
+  font-weight: 300;
+  user-select: none;
+}
+
+.current {
+  color: t.$color-text;
+  font-weight: 600;
+  padding: 4px 8px;
+  background: rgba(t.$color-primary, 0.05);
+  border-radius: 6px;
+}
+
+@keyframes breadcrumbFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .breadcrumb {
+    padding: 12px 0;
+    margin-bottom: 16px;
+  }
+
+  .item {
+    font-size: 0.85rem;
+  }
+
+  .link {
+    padding: 3px 6px;
+    gap: 4px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}

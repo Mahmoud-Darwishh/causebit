@@ -20,11 +20,21 @@ export default function ProjectsGrid() {
   const locale = useLocale();
   const t = useTranslations();
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'all'>('all');
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'all') return projects;
     return projects.filter(p => p.category.includes(activeFilter));
   }, [activeFilter]);
+
+  const handleFilterChange = (filter: ProjectCategory | 'all') => {
+    if (filter === activeFilter) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setActiveFilter(filter);
+      setTimeout(() => setIsAnimating(false), 50);
+    }, 300);
+  };
 
   return (
     <section className={styles.section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
@@ -40,7 +50,7 @@ export default function ProjectsGrid() {
         <div className={styles.filters}>
           <button
             className={`${styles.filterBtn} ${activeFilter === 'all' ? styles.active : ''}`}
-            onClick={() => setActiveFilter('all')}
+            onClick={() => handleFilterChange('all')}
           >
             {t('projects.categories.all')}
           </button>
@@ -48,7 +58,7 @@ export default function ProjectsGrid() {
             <button
               key={cat.key}
               className={`${styles.filterBtn} ${activeFilter === cat.key ? styles.active : ''}`}
-              onClick={() => setActiveFilter(cat.key)}
+              onClick={() => handleFilterChange(cat.key)}
             >
               {t(cat.labelKey)}
             </button>
@@ -56,7 +66,7 @@ export default function ProjectsGrid() {
         </div>
 
         {/* Projects Grid */}
-        <div className={styles.grid}>
+        <div className={`${styles.grid} ${isAnimating ? styles.fadeOut : styles.fadeIn}`}>
           {filteredProjects.map((project, idx) => {
             const thumbnail = project.media[0];
             const isVideo = thumbnail.type === 'video';

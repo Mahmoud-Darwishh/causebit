@@ -2,10 +2,12 @@
 
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { useToast } from '@/components/shared/ToastProvider';
 import styles from './ContactForm.module.scss';
 
 export default function ContactForm() {
   const t = useTranslations();
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'success'>('idle');
 
@@ -19,7 +21,7 @@ export default function ContactForm() {
 
     // Basic validation
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      alert(t('contact.form.required'));
+      showToast(t('contact.form.required'), 'error');
       return;
     }
 
@@ -33,6 +35,7 @@ export default function ContactForm() {
     window.location.href = mailtoLink;
     
     // Show success message
+    showToast(t('contact.form.successMessage'), 'success');
     setStatus('success');
     setFormData({ name: '', email: '', subject: '', message: '' });
     

@@ -5,6 +5,7 @@ import {setRequestLocale, getTranslations} from 'next-intl/server';
 import Link from 'next/link';
 import {getProjectBySlug, projects} from '@/data/projects';
 import ProjectGallery from '@/components/portfolio/ProjectGallery';
+import Breadcrumb from '@/components/shared/Breadcrumb';
 
 interface ProjectPageProps {
   params: Promise<{locale: string; slug: string}>;
@@ -40,6 +41,12 @@ export default async function ProjectPage({params}: ProjectPageProps) {
 
   return (
     <div className="container py-5" dir={locale === 'ar' ? 'rtl' : 'ltr'}>
+      <Breadcrumb
+        items={[
+          { label: t('navigation.projects'), href: `/${locale}/projects` },
+          { label: t(project.titleKey) }
+        ]}
+      />
       <div className="row g-4 align-items-center mb-4">
         <div className="col-lg-6">
           <div className="position-relative rounded-4 overflow-hidden shadow-sm" style={{minHeight: '320px'}}>
