@@ -391,7 +391,6 @@ export default function Hero() {
           <div className={`col-lg-6 order-lg-2 order-2 ${styles.visual}`}>
             <div 
               className={styles.visualContent}
-              style={{ transform: `translateY(${parallaxOffset}px)` }}
             >
               {shouldRenderGame ? (
                 <div className={`${styles.gameCanvas} ${isVisible ? styles.active : ''}`} ref={gameCanvasRef}>
