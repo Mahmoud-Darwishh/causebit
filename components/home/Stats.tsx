@@ -49,46 +49,66 @@ export default function Stats() {
   const [progress, setProgress] = useState<number[]>(() => items.map(() => 0));
   const [hasStarted, setHasStarted] = useState(false);
 
+  // Drive counting based on scroll visibility (intersection ratio)
+  const thresholds = useMemo(() => Array.from({ length: 101 }, (_, i) => i / 100), []);
+  const animRef = useRef<number | null>(null);
+  const currentRef = useRef<number>(0);
+  const targetRef = useRef<number>(0);
+  const itemsCountRef = useRef<number>(items.length);
+  itemsCountRef.current = items.length;
+
   useEffect(() => {
-    if (!containerRef.current) return;
+    const node = containerRef.current;
+    if (!node) return;
+
     if (reducedMotion) {
       setProgress(items.map(() => 1));
       setHasStarted(true);
       return;
     }
 
-    const node = containerRef.current;
     const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            setHasStarted(true);
-            io.disconnect();
-            break;
-          }
-        }
+      ([entry]) => {
+        const ratio = entry.intersectionRatio; // 0..1
+        const eased = easeOutCubic(Math.min(1, Math.max(0, ratio)));
+        targetRef.current = eased;
+        setHasStarted(ratio > 0.05);
       },
-      {root: null, threshold: 0.25}
+      { root: null, threshold: thresholds }
     );
     io.observe(node);
     return () => io.disconnect();
-  }, [reducedMotion, items.length]);
+  }, [items.length, reducedMotion, thresholds]);
 
+  // Smoothly tween current progress toward the target for easy counting
   useEffect(() => {
-    if (!hasStarted) return;
     if (reducedMotion) return;
-    const start = performance.now();
-    const duration = 1200;
-    let raf = 0;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = easeOutCubic(t);
-      setProgress((prev) => prev.map(() => eased));
-      if (t < 1) raf = requestAnimationFrame(tick);
+    const tick = () => {
+      const cur = currentRef.current;
+      const target = targetRef.current;
+      const delta = target - cur;
+      const step = 0.08; // smoothing factor
+      const next = Math.abs(delta) < 0.001 ? target : cur + delta * step;
+      if (next !== cur) {
+        currentRef.current = next;
+        const easedForDigits = next; // already eased target; keep linear tween to it
+        setProgress(Array.from({ length: itemsCountRef.current }, () => easedForDigits));
+      }
+      animRef.current = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [hasStarted, reducedMotion]);
+    animRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+      animRef.current = null;
+    };
+  }, [reducedMotion]);
+
+  // Determine decimals from provided value (e.g., 99.8 -> 1 decimal)
+  const getDecimals = (value: number) => {
+    const s = String(value);
+    const idx = s.indexOf('.');
+    return idx === -1 ? 0 : Math.min(3, s.length - idx - 1);
+  };
 
   return (
     <section ref={containerRef} className={styles.section} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
@@ -100,8 +120,13 @@ export default function Stats() {
         </div>
         <div className="row g-3 g-md-4">
           {items.map((item, idx) => {
-            const current = Math.round(item.value * progress[idx]);
-            const numberText = `${item.prefix ?? ''}${current}${item.suffix ?? ''}`;
+            const decimals = getDecimals(item.value);
+            const raw = item.value * progress[idx];
+            const formatted = Number(raw).toLocaleString(locale, {
+              minimumFractionDigits: decimals > 0 ? 1 : 0,
+              maximumFractionDigits: decimals,
+            });
+            const numberText = `${item.prefix ?? ''}${formatted}${item.suffix ?? ''}`;
             const display = item.unit ? `${numberText}` : numberText;
             return (
               <div className="col-6 col-md-3" key={`${item.label}-${idx}`}>

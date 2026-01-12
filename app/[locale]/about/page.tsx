@@ -1,7 +1,6 @@
 import AboutHero from '@/components/about/AboutHero';
 import AboutStory from '@/components/about/AboutStory';
-import AboutValues from '@/components/about/AboutValues';
-import AboutTeam from '@/components/about/AboutTeam';
+import AboutTech from '@/components/about/AboutTech';
 import AboutCTA from '@/components/about/AboutCTA';
 
 export default function AboutPage() {
@@ -9,8 +8,7 @@ export default function AboutPage() {
     <div>
       <AboutHero />
       <AboutStory />
-      <AboutValues />
-      <AboutTeam />
+      <AboutTech />
       <AboutCTA />
     </div>
   );

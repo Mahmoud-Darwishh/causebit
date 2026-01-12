@@ -2,19 +2,32 @@
 @use '../../styles/tokens' as t;
 
 .section {
-  padding: 50px 0;
-  background: linear-gradient(180deg, #ffffff 0%, rgba(0, 0, 0, 0.02) 100%);
+  padding: 80px 0;
+  background: 
+    radial-gradient(ellipse at 30% 40%, rgba(0, 172, 195, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(26, 34, 56, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, #f8fbfc 0%, #f6fafb 50%, #f7fafb 100%);
+  position: relative;
 
-  @media (min-width: 576px) {
+  // Smooth gradient overlay to next section
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(180deg, transparent 0%, #f7fafb 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (max-width: 768px) {
     padding: 60px 0;
   }
 
-  @media (min-width: 768px) {
-    padding: 70px 0;
-  }
-
-  @media (min-width: 992px) {
-    padding: 80px 0;
+  @media (max-width: 576px) {
+    padding: 50px 0;
   }
 
   &.ltr {
@@ -106,6 +119,7 @@
   border-radius: 16px;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.02);
+  touch-action: pan-y;
 
   @media (min-width: 576px) {
     height: 400px;
@@ -192,6 +206,11 @@
       transform: scale(1.05);
     }
   }
+}
+
+@media (hover: none) {
+  .overlay { opacity: 0 !important; }
+  .slideLink:hover .overlay { opacity: 0 !important; }
 }
 
 .overlayContent {
@@ -373,12 +392,12 @@
   }
 
   @media (max-width: 768px) {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
 
     svg {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
     }
   }
 }
@@ -387,7 +406,7 @@
   left: 20px;
 
   @media (max-width: 768px) {
-    left: 12px;
+    left: 8px;
   }
 }
 
@@ -395,7 +414,7 @@
   right: 20px;
 
   @media (max-width: 768px) {
-    right: 12px;
+    right: 8px;
   }
 }
 
@@ -425,6 +444,12 @@
     width: 24px;
     border-radius: 5px;
   }
+}
+
+@media (max-width: 576px) {
+  .dots { gap: 12px; }
+  .dot { width: 12px; height: 12px; }
+  .dot.active { width: 28px; }
 }
 
 /* CTA Row */

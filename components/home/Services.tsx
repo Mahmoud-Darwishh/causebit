@@ -34,6 +34,8 @@ export default function Services() {
 
   return (
     <section className={`${styles.services} ${isVisible ? styles.visible : ''}`} ref={servicesRef}>
+      <div className={styles.servicesGlowCyan}></div>
+      <div className={styles.servicesGlowAccent}></div>
       <div className="container-fluid px-0">
         <div className={styles.header}>
           <span className={styles.kicker}>{t('services.kicker')}</span>

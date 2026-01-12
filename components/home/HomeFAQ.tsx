@@ -12,7 +12,7 @@ interface FAQItem {
 export default function HomeFAQ() {
   const t = useTranslations('homeFaq');
   const items = t.raw('items') as FAQItem[];
-  const [expandedId, setExpandedId] = useState<number | null>(0);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
   const toggleFAQ = (id: number) => {
     setExpandedId(expandedId === id ? null : id);

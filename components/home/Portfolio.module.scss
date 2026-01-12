@@ -2,14 +2,62 @@
 @use '../../styles/tokens' as t;
 
 .section {
-  padding: 80px 0;
+  padding: t.$section-padding-desktop;
   background: linear-gradient(180deg, #ffffff 0%, rgba(0, 0, 0, 0.02) 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(t.$color-cyan, 0.08), transparent 70%);
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    animation: floatOrb 12s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -15%;
+    left: -8%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(t.$color-primary, 0.06), transparent 70%);
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+    animation: floatOrb 15s ease-in-out infinite reverse;
+  }
+
+  @media (max-width: 768px) {
+    padding: t.$section-padding-tablet;
+  }
+
+  @media (max-width: 576px) {
+    padding: t.$section-padding-mobile;
+  }
 }
 
 .header {
   max-width: 920px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto t.$spacing-4xl;
   text-align: center;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    margin-bottom: t.$spacing-5xl;
+  }
+
+  @media (max-width: 576px) {
+    margin-bottom: t.$spacing-3xl;
+  }
 }
 
 .kicker {
@@ -17,18 +65,34 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   color: t.$color-cyan-deep;
-}
+  opacity:t.$spacing-md 0 t.$spacing-lg;
+  opacity: 0;
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.5rem;
+    margin: t.$spacing-sm 0 t.$spacing-md;
+  }
 
 .title {
   font-size: 2.25rem;
   font-weight: 800;
   color: t.$color-primary;
   margin: 8px 0 12px 0;
+  opacity: 0;
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
 }
 
 .subtitle {
-  color: t.$color-text-muted;
+  color: t.$cot.$spacing-2xl;
+  gap: t.$gap-lgtext-muted;
   margin-bottom: 0;
+  opacity: 0;
+  animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
 }
 
 .ctaRow {
@@ -57,18 +121,115 @@
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid t.$color-border;
-  border-radius: 14px;
-  padding: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(t.$color-cyan, 0.15);
+  border-radius: 18px;
+  padding: 0;
   height: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  backdrop-filter: blur(8px);
-  transition: transform 300ms ease, box-shadow 300ms ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08),
+              0 2px 8px rgba(0, 0, 0, 0.04),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(t.$color-cyan, 0.4), 
+      transparent);
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
 
   &:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.10);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(t.$color-cyan, 0.15),
+                0 8px 24px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 1);
+    border-color: rgba(t.$color-cyan, 0.3);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .cardThumbnail img {
+      transform: scale(1.1);
+    }
+
+    .cardThumbnail::after {
+      opacity: 0.6;
+    }
+  }
+
+  @media (max-width: 576px) {
+    border-radius: 16px;
+  }
+}
+
+.cardThumbnail {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(t.$color-primary, 0.08), 
+    rgba(t.$color-cyan, 0.08));
+  
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, 
+      rgba(t.$color-cyan, 0.15) 0%, 
+      rgba(t.$color-primary, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 400ms ease;
+    pointer-events: none;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 8px;
+  }
+
+  @media (max-width: 576px) {
+    height: 200px;
+    
+    img {
+      padding: 6px;
+    }
+  }
+}
+
+.cardContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  @media (max-width: 576px) {
+    padding: 20px;
+  }
+}
+
+@media (hover: none) {
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -103,24 +264,97 @@
   &:hover { color: t.$cyan-700; }
 }
 
-/* Reveal animations (IntersectionObserver toggles .isVisible) */
+/* Reveal animations - slide in from outside screen */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
   will-change: opacity, transform;
-  transition: opacity 600ms ease, transform 600ms ease;
+  transition: opacity 900ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 900ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slide from left (odd items) */
+.grid .col-12:nth-child(odd) .reveal {
+  transform: translateX(-120px) translateY(20px) scale(0.9);
+}
+
+/* Slide from right (even items) */
+.grid .col-12:nth-child(even) .reveal {
+  transform: translateX(120px) translateY(20px) scale(0.9);
 }
 
 .isVisible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0) translateY(0) scale(1) !important;
+}
+
+/* Staggered delays */
+.grid .col-12:nth-child(1) .reveal {
+  transition-delay: 0ms;
+}
+
+.grid .col-12:nth-child(2) .reveal {
+  transition-delay: 150ms;
+}
+
+.grid .col-12:nth-child(3) .reveal {
+  transition-delay: 300ms;
+}
+
+.grid .col-12:nth-child(4) .reveal {
+  transition-delay: 450ms;
+}
+
+.grid .col-12:nth-child(5) .reveal {
+  transition-delay: 600ms;
+}
+
+.grid .col-12:nth-child(6) .reveal {
+  transition-delay: 750ms;
+}
+
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
-    transform: none;
+    transform: none !important;
     transition: none;
   }
   .card { transition: none; }
+  .kicker, .title, .subtitle {
+    animation: none;
+    opacity: 1;
+  }
+  &::before, &::after {
+    animation: none;
+  }
 }

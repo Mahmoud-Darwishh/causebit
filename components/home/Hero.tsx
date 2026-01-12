@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties, MouseEvent } from 'react';
+import CalendlyButton from '@/components/shared/CalendlyButton';
 import styles from './Hero.module.scss';
 
 type PrimaryCollectible = 'strategy' | 'design' | 'development';
@@ -42,7 +43,6 @@ export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
-  const [parallaxOffset, setParallaxOffset] = useState(0);
   const [starPositions, setStarPositions] = useState<Array<{ left: number; top: number; delay: number }> | null>(null);
   const [shouldRenderGame, setShouldRenderGame] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
@@ -82,20 +82,10 @@ export default function Hero() {
       observer.observe(heroRef.current);
     }
 
-    // Parallax scroll effect
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      const parallax = scrolled * 0.5;
-      setParallaxOffset(parallax);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => {
       if (heroRef.current) {
         observer.unobserve(heroRef.current);
       }
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -347,6 +337,8 @@ export default function Hero() {
 
   return (
     <section className={`${styles.hero} ${locale === 'ar' ? styles.rtl : styles.ltr}`} ref={heroRef}>
+      <div className={styles.heroGlowTop}></div>
+      <div className={styles.heroGlowBottom}></div>
       <div className="container-fluid px-0">
         <div className="row align-items-center g-0">
           <div className={`col-lg-6 order-lg-1 order-1 ${styles.content}`}>
@@ -370,9 +362,9 @@ export default function Hero() {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </Link>
-                <Link href={`/${locale}/contact`} className={`${styles.btn} ${styles.btnSecondary}`}>
+                <CalendlyButton className={`${styles.btn} ${styles.btnSecondary}`}>
                   <span>{t('hero.secondary')}</span>
-                </Link>
+                </CalendlyButton>
               </div>
 
               <div className={`${styles.statsRow} ${isVisible ? styles.visible : ''}`}>

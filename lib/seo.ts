@@ -2,7 +2,7 @@ export const SITE_URL = 'https://causebit.tech';
 export const BRAND_NAME = 'Causebit';
 export const BRAND_TAGLINE = 'Code with Cause';
 export const DEFAULT_DESCRIPTION =
-  'Causebit is a bilingual (Arabic/English) software house delivering modern, high-performance web and mobile solutions with global standards.';
+  'Causebit is a software house delivering modern web solutions with strong SEO, clean UI, and mobile support.';
 
 export const SUPPORTED_LOCALES = ['en', 'ar'] as const;
 

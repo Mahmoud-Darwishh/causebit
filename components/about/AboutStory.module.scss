@@ -1,38 +1,93 @@
 @use '../../styles/tokens' as t;
 
 .story {
-  padding: 100px 0;
-  background: #ffffff;
+  padding: t.$spacing-7xl 0;
+  background: linear-gradient(180deg, #ffffff 0%, rgba(t.$color-bg, 0.3) 100%);
   position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(t.$color-cyan, 0.06), transparent);
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+  }
 
   @media (max-width: 768px) {
-    padding: 70px 0;
+    padding: t.$spacing-6xl 0;
   }
 
   @media (max-width: 576px) {
-    padding: 50px 0;
+    padding: t.$spacing-5xl 0;
+  }
+
+  &.visible {
+    .kicker {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .title,
+    .subtitle,
+    .content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .highlightList {
+      .highlightItem {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
   }
 }
 
 .kicker {
-  display: inline-block;
-  padding: 8px 14px;
-  border-radius: 999px;
-  background: rgba(t.$color-primary, 0.08);
-  color: t.$color-primary;
+  display: inline-flex;
+  align-items: center;
+  gap: t.$spacing-sm;
+  padding: t.$spacing-sm t.$spacing-md;
+  border-radius: t.$radius-full;
+  background: linear-gradient(135deg, rgba(t.$color-cyan, 0.1), rgba(t.$color-accent, 0.05));
+  color: t.$color-cyan-deep;
   font-weight: 700;
   font-size: 0.85rem;
-  letter-spacing: 0.4px;
-  border: 1px solid rgba(t.$color-primary, 0.12);
-  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(t.$color-cyan, 0.2);
+  margin-bottom: t.$spacing-2xl;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.1s;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, t.$color-cyan, t.$color-accent);
+  }
 }
 
 .title {
   font-size: 2.8rem;
   font-weight: 800;
   color: t.$color-primary;
-  margin-bottom: 12px;
+  margin-bottom: t.$spacing-md;
   line-height: 1.2;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.15s;
 
   @media (max-width: 768px) {
     font-size: 2.2rem;
@@ -46,8 +101,15 @@
 .subtitle {
   font-size: 1.25rem;
   font-weight: 600;
-  color: t.$color-cyan;
-  margin-bottom: 20px;
+  background: linear-gradient(135deg, t.$color-cyan, t.$color-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: t.$spacing-2xl;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
 
   @media (max-width: 576px) {
     font-size: 1.1rem;
@@ -56,9 +118,13 @@
 
 .content {
   font-size: 1.05rem;
-  color: t.$color-text-muted;
+  color: rgba(t.$color-text, 0.75);
   line-height: 1.8;
-  margin-bottom: 32px;
+  margin-bottom: t.$spacing-3xl;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.25s;
 }
 
 .highlightList {
@@ -67,19 +133,46 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: t.$spacing-md;
 }
 
 .highlightItem {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: t.$spacing-md;
   font-size: 1.05rem;
-  color: t.$color-text;
+  color: rgba(t.$color-text, 0.8);
   font-weight: 500;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (max-width: 576px) {
     font-size: 0.95rem;
+  }
+
+  &:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+
+  &:nth-child(2) {
+    transition-delay: 0.35s;
+  }
+
+  &:nth-child(3) {
+    transition-delay: 0.4s;
+  }
+
+  &:nth-child(4) {
+    transition-delay: 0.45s;
+  }
+
+  &:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+
+  &:nth-child(6) {
+    transition-delay: 0.55s;
   }
 }
 
@@ -87,14 +180,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: linear-gradient(135deg, t.$color-cyan, t.$color-primary);
   color: white;
   font-weight: 700;
   flex-shrink: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(t.$color-cyan, 0.2);
 }
 
 .imageBox {

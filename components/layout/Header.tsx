@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl';
 import { useTranslations } from 'next-intl';
 import { useRouter, usePathname } from 'next/navigation';
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import CalendlyButton from '@/components/shared/CalendlyButton';
 import styles from './Header.module.scss';
 
 export default function Header() {
@@ -123,11 +124,9 @@ export default function Header() {
             {/* CTA + Language Switcher */}
             <div className={`${styles.headerActions} ${locale === 'ar' ? 'me-lg-0 ms-lg-5' : 'ms-lg-5'}`}>
               {/* Contact CTA */}
-              <Link 
-                href={`/${locale}/contact`} 
+              <CalendlyButton
                 className={styles.ctaBtn}
-                onClick={closeMenu}
-                aria-label="Contact us"
+                ariaLabel="Schedule a meeting with us"
               >
                 <span>{t('nav.contact')}</span>
                 <svg 
@@ -147,7 +146,7 @@ export default function Header() {
                     strokeLinejoin="round"
                   />
                 </svg>
-              </Link>
+              </CalendlyButton>
 
               {/* Language Switcher */}
               <div className={styles.languageSwitcher}>

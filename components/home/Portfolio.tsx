@@ -58,15 +58,28 @@ export default function Portfolio() {
           </div>
         </div>
         <div className={`row ${styles.grid}`} ref={containerRef} id="projects">
-          {cards.map((card) => (
+          {cards.map((card, index) => (
             <div className="col-12 col-md-6 col-lg-4 mb-4" key={card.id}>
               <article className={`${styles.card} ${styles.reveal}`} data-reveal>
-                <span className={styles.badge}>Portfolio</span>
-                <h3 className={styles.cardTitle}>{card.title}</h3>
-                <p className={styles.cardText}>{card.description}</p>
-                <a href={card.href} className={styles.cardLink} aria-label={card.title}>
-                  {t('viewProject')}
-                </a>
+                <div className={styles.cardThumbnail}>
+                  <img 
+                    src={`/projects/thumb-${index + 1}.jpg`}
+                    alt={card.title}
+                    loading="lazy"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
+                  />
+                </div>
+                <div className={styles.cardContent}>
+                  <span className={styles.badge}>Portfolio</span>
+                  <h3 className={styles.cardTitle}>{card.title}</h3>
+                  <p className={styles.cardText}>{card.description}</p>
+                  <a href={card.href} className={styles.cardLink} aria-label={card.title}>
+                    {t('viewProject')}
+                  </a>
+                </div>
               </article>
             </div>
           ))}

@@ -1,0 +1,166 @@
+@use '../../styles/tokens' as t;
+
+.legal {
+  padding: t.$section-padding-desktop;
+  background: linear-gradient(135deg, #ffffff 0%, t.$color-bg 100%);
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: 992px) {
+    padding: t.$section-padding-tablet;
+  }
+
+  @media (max-width: 768px) {
+    padding: t.$section-padding-mobile;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: t.$spacing-4xl;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .visible & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kicker {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: t.$color-cyan-deep;
+  margin-bottom: t.$spacing-md;
+}
+
+.title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: t.$color-primary;
+  margin-bottom: t.$spacing-lg;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: rgba(t.$color-text, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.legalCard {
+  padding: t.$spacing-2xl;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  border: 1px solid rgba(t.$color-cyan, 0.2);
+  border-radius: t.$radius-xl;
+  box-shadow: t.$shadow-glass;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  display: flex;
+  gap: t.$spacing-xl;
+  opacity: 0;
+  transform: translateY(30px);
+
+  &.cardVisible {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) var(--delay, 0s) forwards;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    border-color: rgba(t.$color-cyan, 0.4);
+    box-shadow: 0 12px 40px rgba(t.$color-cyan, 0.15);
+  }
+
+  @media (max-width: 768px) {
+    padding: t.$spacing-xl;
+    flex-direction: column;
+  }
+}
+
+.iconBox {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(t.$color-cyan, 0.1), rgba(t.$color-primary, 0.05));
+  border-radius: t.$radius-lg;
+  transition: all 0.3s ease;
+
+  .legalCard:hover & {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, rgba(t.$color-cyan, 0.15), rgba(t.$color-primary, 0.1));
+  }
+
+  @media (max-width: 768px) {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+.icon {
+  font-size: 2.5rem;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.content {
+  flex: 1;
+}
+
+.legalTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: t.$color-primary;
+  margin-bottom: t.$spacing-md;
+}
+
+.legalDesc {
+  font-size: 1rem;
+  color: rgba(t.$color-text, 0.7);
+  line-height: 1.7;
+  margin-bottom: t.$spacing-lg;
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: t.$spacing-sm;
+}
+
+.badge {
+  padding: t.$spacing-xs t.$spacing-md;
+  background: linear-gradient(135deg, rgba(t.$color-cyan, 0.1), rgba(t.$color-accent, 0.05));
+  border: 1px solid rgba(t.$color-cyan, 0.3);
+  border-radius: t.$radius-full;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: t.$color-cyan-deep;
+  white-space: nowrap;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
