@@ -35,13 +35,13 @@ export default function ContactInfo() {
       icon: '📧',
       label: t('contact.info.email.label'),
       value: t('contact.info.email.value'),
-      href: 'mailto:hello@causebit.com',
+      href: 'mailto:causehelp@causebit.com',
     },
     {
       icon: '💬',
       label: t('contact.info.whatsapp.label'),
       value: t('contact.info.whatsapp.value'),
-      href: 'https://wa.me/201234567890',
+      href: 'https://wa.me/201270558620',
     },
     {
       icon: '📍',

@@ -28,7 +28,7 @@ export default function Footer() {
               <ul className={styles.social} aria-label="Social links">
                 <li>
                   <a 
-                    href="https://linkedin.com/company/causebit" 
+                    href="https://www.linkedin.com/in/mahmoud-darwishh/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     aria-label={t('footer.social.linkedin')}
@@ -41,7 +41,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a 
-                    href="https://github.com/causebit" 
+                    href="https://github.com/Mahmoud-Darwishh" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     aria-label={t('footer.social.github')}
@@ -116,13 +116,13 @@ export default function Footer() {
               <div className={styles.contactBlock}>
                 <p className={styles.contactLabel}>{t('footer.contact.email', { defaultValue: 'Email' })}</p>
                 <p className={styles.contactInfo}>
-                  <a href="mailto:hello@causebit.com">hello@causebit.com</a>
+                  <a href="mailto:causehelp@causebit.com">causehelp@causebit.com</a>
                 </p>
                 <p className={styles.contactLabel} style={{ marginTop: '12px' }}>
-                  {t('footer.contact.location', { defaultValue: 'Location' })}
+                  {t('footer.contact.phone', { defaultValue: 'Phone' })}
                 </p>
                 <p className={styles.contactInfo}>
-                  {t('footer.contact.address', { defaultValue: 'Cairo, Egypt' })}
+                  <a href="tel:+201270558620">+20 1270558620</a>
                 </p>
               </div>
             </div>

@@ -66,6 +66,7 @@
     "contact": {
       "label": "Get In Touch",
       "email": "Email",
+      "phone": "Phone",
       "location": "Location",
       "address": "Cairo, Egypt"
     },
@@ -431,7 +432,7 @@
       "subtitle": "We're here to help and answer any question you might have.",
       "email": {
         "label": "Email",
-        "value": "hello@causebit.com"
+        "value": "causehelp@causebit.com"
       },
       "whatsapp": {
         "label": "WhatsApp",
